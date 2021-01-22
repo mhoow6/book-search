@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daum 책 검색</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="main.js"></script>
+    <script src="https://kit.fontawesome.com/2d323a629b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>Daum 책 검색</h1>
+
+    <!-- Search -->
+    <div class="search-box">
+        <input type="text" class="search-input" id="searchKeyword" name="searchKeyword" size="30">
+        <button class="search-btn" id="searchKeywordBtn"><i class="fas fa-search"></i></button>
+    </div>
+    
+    <!-- Sorting -->
+    <div class="sort-box">
+        <button id="sortAccuracy">정확도순</button>
+        <button id="sortLatest">발간일순</button>
+    </div>
+
+    <!-- Content -->
+    <!-- 스크립트로 만들 내용 -->
+    <div class="content-container">
+        <div class="content-box">
+            <img src="test.jfif" alt="thum">
+            <p>책 제목</p>
+            <ul>
+                <li>저자</li>
+                <li>출판사</li>
+                <li>출판일</li>
+            </ul>
+            <p>책 가격</p>
+        </div>
+        <div class="content-box">
+            <img src="test.jfif" alt="thum">
+            <p>책 제목</p>
+            <ul>
+                
+                <li>저자</li>
+                <li>출판사</li>
+                <li>출판일</li>
+            </ul>
+            <p>책 가격</p>
+        </div>
+    </div>
+    
+    <!-- List paging -->
+    <div class="list-paging">
+        <button class="btn_prev" id="prevTenPage"><i class="fas fa-backward"></i></button>
+        <button class="btn_prev" id="prevOnePage"><i class="fas fa-caret-left"></i></button>
+        <!-- 현재 페이지; 스크립트로 만들 내용 -->   
+        <span class="page-list">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>10</button>
+        </span>
+        <button class="btn_next" id="nextOnePage"><i class="fas fa-caret-right"></i></button>
+        <button class="btn_next" id="nextTenPage"><i class="fas fa-forward"></i></button>
+        <span class="page-jump">
+            <input type="text" class="jump-btn" id="jumpPagetxt" name="jumpPagetxt" size="1">
+            <span>/ 총 페이지</span> <!-- 총 페이지; 스크립트로 만들 내용 -->   
+            <button class="search-btn">이동</button>
+        </span>
+    </div>
+</body>
+</html>

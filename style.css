@@ -1,0 +1,35 @@
+:root {
+  --font-title: 18px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: var(--font-title);
+}
+
+.content-container {
+  border: 3px solid;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.content-container ul {
+  list-style: none;
+}
+
+.content-box {
+  border: 3px solid red;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-box ul {
+  border: 3px solid blue;
+  display: flex;
+}
