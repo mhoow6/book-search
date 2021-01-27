@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css?family=Alegreya+Sans:900");
+
+:root {
+  --margin: 5px;
+  --padding: 5px;
+  --card-size: 120px;
+  --light-white: #fafafa;
+  --font-size: 14px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.list-box {
+  /* 실제 적용될 위치 아님*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-family: "Noto Sans KR", sans-serif;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  width: 655px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  background: var(--light-white);
+  animation: fadein 2s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.list-box > ul {
+  list-style-type: none;
+  padding: 0;
+  margin: var(--margin);
+  width: var(--card-size);
+}
+
+.list-box > ul > li {
+  text-align: center;
+  padding: var(--padding) 0px;
+  font-size: var(--font-size);
+  width: calc(var(--card-size) + var(--margin));
+}
