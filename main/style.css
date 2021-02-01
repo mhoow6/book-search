@@ -59,16 +59,16 @@ body {
 }
 
 .list-box {
-  /* 실제 적용될 위치 아님*/
+  visibility: collapse;
   position: absolute;
   top: 80%;
   left: 50%;
   transform: translate(-50%, -80%);
-
   font-family: "Noto Sans KR", sans-serif;
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   width: 655px;
+  height: 816px;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
@@ -76,7 +76,8 @@ body {
 }
 
 .list-box.show {
-  animation: fadein 5s;
+  visibility: visible;
+  animation: fadein 3s;
 }
 
 @keyframes fadein {
