@@ -54,9 +54,15 @@ function makelist(responseText) {
 
     /* 책 가격 */
     var li = document.createElement("li");
-    var text = document.createTextNode(
-      responseText["documents"][i]["sale_price"] + " 원"
-    );
+    if (responseText["documents"][i]["sale_price"] !== -1) {
+      var text = document.createTextNode(
+        responseText["documents"][i]["sale_price"] + " 원"
+      );
+    } else {
+      var text = document.createTextNode(
+        responseText["documents"][i]["price"] + " 원"
+      );
+    }
 
     li.appendChild(text);
     ul.appendChild(li);
@@ -87,6 +93,11 @@ function RequestAPI() {
 
   xhr.onreadystatechange = function () {
     if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+      if (listBox.hasChildNodes()) {
+        while (listBox.firstChild) {
+          listBox.removeChild(listBox.firstChild);
+        }
+      }
       setTimeout(makelist(JSON.parse(xhr.responseText)), 2000);
     }
   };
