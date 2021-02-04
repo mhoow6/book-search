@@ -2,9 +2,16 @@
   --daum-color: rgba(89, 127, 165, 255);
   --light-white: #fafafa;
   --margin: 5px;
+  --margin-double: 10px;
   --padding: 5px;
+  --padding-double: 10px;
+  --font-size-small: 14px;
+  --font-size-medium: 16px;
+  --search-box-border-radius: 30px;
+  --search-input-line-height: 40px;
   --card-size: 120px;
-  --font-size: 14px;
+  --search-input-size: 240px;
+  --search-btn-size: 40px;
 }
 
 body {
@@ -14,42 +21,42 @@ body {
 
 .search-box {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 50vh;
+  left: 50vw;
   transform: translate(-50%, -50%);
-  padding: 10px;
-  border-radius: 30px;
+  padding: var(--padding-double);
+  border-radius: var(--search-box-border-radius);
   background: var(--daum-color);
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  transition: 1s;
+  /* transition: 1s; */
 }
 
 .search-box.searched {
   position: absolute;
-  top: 7%;
-  left: 50%;
+  top: 7vh;
+  left: 50vw;
 }
 
 .search-input {
   border: none;
   padding: 0;
   outline: none;
-  font-size: 16px;
-  line-height: 40px;
+  font-size: var(--font-size-medium);
+  line-height: var(--search-input-line-height);
   font-weight: bold;
   background: var(--daum-color);
   color: var(--light-white);
   transition: 0.5s;
-  width: 240px;
-  margin-left: 10px;
+  width: var(--search-input-size);
+  margin-left: var(--margin-double);
 }
 
 .search-btn {
-  width: 40px;
-  height: 40px;
+  width: var(--search-btn-size);
+  height: var(--search-btn-size);
   cursor: pointer;
 }
 
@@ -61,18 +68,28 @@ body {
 .list-box {
   visibility: collapse;
   position: absolute;
-  top: 80%;
-  left: 50%;
+  top: 80vh;
+  left: 50vw;
   transform: translate(-50%, -80%);
   font-family: "Noto Sans KR", sans-serif;
-  border-radius: 8px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  width: 655px;
-  height: 816px;
+  /* width: 655px;
+  height: 816px; */
+  width: 55vw;
+  height: 85vh;
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
-  background: var(--light-white);
+  justify-content: none;
+  align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+  .list-box {
+    width: 85vw;
+  }
+
+  .search-input {
+    width: 24vw;
+  }
 }
 
 .list-box.show {
@@ -99,6 +116,6 @@ body {
 .list-box > ul > li {
   text-align: center;
   padding: var(--padding) 0px;
-  font-size: var(--font-size);
+  font-size: var(--font-size-small);
   width: calc(var(--card-size) + var(--margin));
 }
