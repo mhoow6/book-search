@@ -1,8 +1,7 @@
-var searchBox = document.getElementById("searchBox");
-var searchBtn = document.getElementById("searchBtn");
-var searchInput = document.getElementById("searchInput");
-var listBox = document.getElementById("listBox");
-
+const searchBox = document.getElementById("searchBox");
+const searchBtn = document.getElementById("searchBtn");
+const searchInput = document.getElementById("searchInput");
+const listBox = document.getElementById("listBox");
 const KEY_ENTER = 13;
 
 searchBtn.addEventListener("click", search);
@@ -16,6 +15,28 @@ searchInput.addEventListener("keydown", (e) => {
 function search() {
   searchBox.classList.add("searched");
   RequestAPI();
+}
+
+function RequestAPI() {
+  var xhr = new XMLHttpRequest();
+  var url = "https://dapi.kakao.com/v3/search/book?target=title";
+  var apikey = "KakaoAK 357576fc652c16fd2a1a766b9e5ac3f1";
+  var searchInput = document.getElementById("searchInput").value;
+
+  xhr.open("GET", url + "&query=" + searchInput);
+  xhr.setRequestHeader("Authorization", apikey);
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === xhr.DONE && xhr.status === 200) {
+      if (listBox.hasChildNodes()) {
+        while (listBox.firstChild) {
+          listBox.removeChild(listBox.firstChild);
+        }
+      }
+      setTimeout(makelist(JSON.parse(xhr.responseText)), 2000);
+    }
+  };
+  xhr.send();
 }
 
 function makelist(responseText) {
@@ -81,25 +102,4 @@ function makelist(responseText) {
   /* Fade in */
   listBox.classList.add("show");
 }
-
-function RequestAPI() {
-  var xhr = new XMLHttpRequest();
-  var url = "https://dapi.kakao.com/v3/search/book?target=title";
-  var apikey = "KakaoAK 357576fc652c16fd2a1a766b9e5ac3f1";
-  var searchInput = document.getElementById("searchInput").value;
-
-  xhr.open("GET", url + "&query=" + searchInput);
-  xhr.setRequestHeader("Authorization", apikey);
-
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === xhr.DONE && xhr.status === 200) {
-      if (listBox.hasChildNodes()) {
-        while (listBox.firstChild) {
-          listBox.removeChild(listBox.firstChild);
-        }
-      }
-      setTimeout(makelist(JSON.parse(xhr.responseText)), 2000);
-    }
-  };
-  xhr.send();
-}
+z;
