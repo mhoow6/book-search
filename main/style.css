@@ -31,7 +31,7 @@ body {
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  /* transition: 1s; */
+  transition: 1s;
 }
 
 .search-box.searched {
@@ -74,11 +74,11 @@ body {
   font-family: "Noto Sans KR", sans-serif;
   /* width: 655px;
   height: 816px; */
-  width: 55vw;
+  width: 50vw;
   height: 85vh;
   display: flex;
   flex-flow: row wrap;
-  justify-content: none;
+  justify-content: space-between;
   align-items: flex-start;
 }
 
@@ -89,6 +89,12 @@ body {
 
   .search-input {
     width: 24vw;
+  }
+}
+
+@media (min-width: 1560px) {
+  .list-box {
+    width: 779px;
   }
 }
 
