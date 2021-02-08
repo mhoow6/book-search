@@ -2,7 +2,6 @@ const searchBox = document.getElementById("searchBox");
 const searchBtn = document.getElementById("searchBtn");
 const searchInput = document.getElementById("searchInput");
 const listBox = document.getElementById("listBox");
-const KEY_ENTER = 13;
 
 searchBtn.addEventListener("click", search);
 searchInput.addEventListener("keydown", (e) => {
@@ -21,9 +20,8 @@ function RequestAPI() {
   var xhr = new XMLHttpRequest();
   var url = "https://dapi.kakao.com/v3/search/book?target=title";
   var apikey = "KakaoAK 357576fc652c16fd2a1a766b9e5ac3f1";
-  var searchInput = document.getElementById("searchInput").value;
 
-  xhr.open("GET", url + "&query=" + searchInput);
+  xhr.open("GET", url + "&query=" + searchInput.value);
   xhr.setRequestHeader("Authorization", apikey);
 
   xhr.onreadystatechange = function () {
@@ -102,4 +100,3 @@ function makelist(responseText) {
   /* Fade in */
   listBox.classList.add("show");
 }
-z;
